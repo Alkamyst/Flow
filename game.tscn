@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://deyvan0uky6r3"]
+
+[ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bhjmj57sab2r4" path="res://Water_Color.tscn" id="3_feb5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
+
+[node name="Game" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1156, 12, 860, 453, 574, 508, 283, 435, -2, 7, -1, 648, 1151, 652)
+
+[node name="WaterPhysics" parent="." instance=ExtResource("1_80nbo")]
+material = SubResource("ShaderMaterial_fc0e3")
+position = Vector2(629, 112)
+particle_texture = ExtResource("2_e2o6t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Water_Color" parent="CanvasLayer" instance=ExtResource("3_feb5d")]
+grow_horizontal = 2
+grow_vertical = 2
