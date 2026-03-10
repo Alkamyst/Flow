@@ -23,7 +23,7 @@ Globals="*res://Global/Globals.tscn"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [global_group]
 

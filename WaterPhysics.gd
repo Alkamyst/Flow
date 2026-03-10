@@ -12,14 +12,14 @@ func create_particle():
 	var vs = RenderingServer
 	# set position
 	var trans = global_transform 
-	trans.origin += Vector2(randf_range(-20,10),randf_range(-20,10))
+	trans.origin += Vector2(randf_range(-50,50),randf_range(-20,10))
 	#physics body
 	var water_col = ps.body_create()
 	ps.body_set_mode(water_col,PhysicsServer2D.BODY_MODE_RIGID)
 	ps.body_set_space(water_col,get_world_2d().space)
 	#create circle shape for collision
 	var shape = ps.circle_shape_create()
-	ps.shape_set_data(shape,4)
+	ps.shape_set_data(shape,2)
 	#add shape to rigid body
 	ps.body_add_shape(water_col,shape,Transform2D.IDENTITY)
 	#set collision layer and mask
@@ -40,7 +40,7 @@ func create_particle():
 	#create a rectangle that will contain the texture
 	var rect = Rect2()
 	rect.position = Vector2(-8,-8)
-	rect.size = particle_texture.get_size()/2
+	rect.size = particle_texture.get_size()/3
 	#add the texture to the canvas item
 	vs.canvas_item_add_texture_rect(water_particle,rect,particle_texture)
 	#set the texture color to pink
@@ -69,4 +69,3 @@ func _physics_process(_delta):
 			#remove reference
 			water_particles.erase(col)
 			Globals.total_water_particles -=1
-			print(Globals.total_water_particles)

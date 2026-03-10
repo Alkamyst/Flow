@@ -6,6 +6,7 @@
 resource_local_to_scene = true
 
 [node name="Line" type="StaticBody2D"]
+z_index = 1
 script = ExtResource("1_xf1pa")
 points = [Vector2(0, 0), Vector2(100, 100)]
 

@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://biy5qhi571oct"]
+
+[ext_resource type="Script" uid="uid://barfl1vvjaem2" path="res://Objects/Glass/area_2d.gd" id="1_mstf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc5ce"]
+size = Vector2(80, 98)
+
+[node name="Glass" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2.4000015, 10.399994)
+scale = Vector2(3.9199982, 2.7600029)
+build_mode = 1
+polygon = PackedVector2Array(10.204086, -40.21735, 5.102043, -5.7970953, -4.0816345, -5.7970953, -8.9285755, -40.579666, -12.500006, -40.579666, -4.591839, -5.0724583, 5.6122475, -5.0724583, 13.520414, -40.579666)
+
+[node name="Inside" type="Polygon2D" parent="."]
+position = Vector2(7.5999985, -0.1000061)
+scale = Vector2(3.9199982, 2.7600029)
+color = Color(0.43137255, 0.43137255, 0.60784316, 0.36862746)
+polygon = PackedVector2Array(9, -37, 2, -37, -7, -37, -13, -37, -15, -37, -10, 2, -2, 2, 6, 2, 11, -37)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(7.5999985, -0.1000061)
+scale = Vector2(3.9199982, 2.7600029)
+color = Color(0.4745098, 1, 1, 0.32156864)
+polygon = PackedVector2Array(7.6530647, -36.775322, 2.5510216, -1.9927514, -6.632656, -1.9927514, -11.479597, -36.775322, -15, -37, -10, 2, -2, 2, 6, 2, 11, -37)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_mstf8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -53)
+shape = SubResource("RectangleShape2D_sc5ce")
+
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="Area2D" method="_on_body_shape_exited"]
