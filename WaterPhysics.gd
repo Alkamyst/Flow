@@ -4,7 +4,7 @@ extends Node2D
 @export var max_water_particles = 1000
 var current_particle_count = 0
 var spawn_timer = 0
-@export var spawn_time = 1.0
+@export var spawn_time = 5.0
 var water_particles = []
 
 func create_particle():
@@ -12,7 +12,7 @@ func create_particle():
 	var vs = RenderingServer
 	# set position
 	var trans = global_transform 
-	trans.origin += Vector2(randf_range(-10,10),randf_range(-10,10))
+	trans.origin += Vector2(randf_range(-20,10),randf_range(-20,10))
 	#physics body
 	var water_col = ps.body_create()
 	ps.body_set_mode(water_col,PhysicsServer2D.BODY_MODE_RIGID)
@@ -27,8 +27,8 @@ func create_particle():
 	ps.body_set_collision_mask(water_col,1)
 	#set physics parameters
 	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_FRICTION,0.0)
-	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_MASS,0.05)
-	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_GRAVITY_SCALE,1.0)
+	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_MASS,1.0)
+	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_GRAVITY_SCALE,0.5)
 	ps.body_set_state(water_col,PhysicsServer2D.BODY_STATE_TRANSFORM,trans)
 	#Visual
 	#create canvas item(all 2D objects are canvas items)
@@ -50,7 +50,7 @@ func create_particle():
 
 func _physics_process(_delta):
 	#add particles while less than max amount set and timer < 0
-	if spawn_timer < 0 and current_particle_count < max_water_particles:
+	if spawn_timer < 0 and Globals.total_water_particles < max_water_particles:
 		create_particle()
 		current_particle_count += 1
 		Globals.total_water_particles += 1
@@ -69,3 +69,4 @@ func _physics_process(_delta):
 			#remove reference
 			water_particles.erase(col)
 			Globals.total_water_particles -=1
+			print(Globals.total_water_particles)

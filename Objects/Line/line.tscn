@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt08eapmjxf6q"]
+
+[ext_resource type="Script" uid="uid://bymfiroyx5c2k" path="res://Objects/Line/line.gd" id="1_xf1pa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf1pa"]
+resource_local_to_scene = true
+
+[node name="Line" type="StaticBody2D"]
+script = ExtResource("1_xf1pa")
+points = [Vector2(0, 0), Vector2(100, 100)]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xf1pa")
+disabled = true
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
