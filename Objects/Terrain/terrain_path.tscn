@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj7gp0nfcjj7v"]
+
+[ext_resource type="PackedScene" uid="uid://bswhadp2y0386" path="res://Objects/Terrain/terrain.tscn" id="1_hwp7k"]
+
+[sub_resource type="Curve2D" id="Curve2D_ktmem"]
+bake_interval = 20.0
+
+[node name="TerrainPath" type="Path2D"]
+curve = SubResource("Curve2D_ktmem")
+
+[node name="Terrain" parent="." instance=ExtResource("1_hwp7k")]

@@ -44,7 +44,7 @@ func create_particle():
 	#add the texture to the canvas item
 	vs.canvas_item_add_texture_rect(water_particle,rect,particle_texture)
 	#set the texture color to pink
-	vs.canvas_item_set_self_modulate(water_particle,Color("ff00ffff"))
+	vs.canvas_item_set_self_modulate(water_particle,Color("00ffffff"))
 	#add RID pair to array
 	water_particles.append([water_col,water_particle])
 

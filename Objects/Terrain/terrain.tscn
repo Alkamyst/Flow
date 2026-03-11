@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bswhadp2y0386"]
+
+[ext_resource type="Script" uid="uid://bubf7brrg24ff" path="res://Objects/Terrain/terrain.gd" id="1_jp54w"]
+[ext_resource type="Texture2D" uid="uid://dan3i28tdp0ha" path="res://Sprites/Terrain/Dirt.png" id="2_ncmcf"]
+[ext_resource type="Texture2D" uid="uid://cpd36ghufkdhp" path="res://Sprites/Terrain/Grass.png" id="2_x36sy"]
+
+[node name="Terrain" type="StaticBody2D"]
+script = ExtResource("1_jp54w")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+clip_children = 2
+texture = ExtResource("2_ncmcf")
+
+[node name="Line2D" type="Line2D" parent="Polygon2D"]
+closed = true
+texture = ExtResource("2_x36sy")
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

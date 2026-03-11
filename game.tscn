@@ -1,12 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://deyvan0uky6r3"]
+[gd_scene load_steps=9 format=3 uid="uid://deyvan0uky6r3"]
 
 [ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bhjmj57sab2r4" path="res://Water_Color.tscn" id="3_feb5d"]
 [ext_resource type="Script" uid="uid://b205hitcvum0g" path="res://line_adder.gd" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://biy5qhi571oct" path="res://Objects/Glass/glass.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://cj7gp0nfcjj7v" path="res://Objects/Terrain/terrain_path.tscn" id="6_ryrav"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
+
+[sub_resource type="Curve2D" id="Curve2D_ryrav"]
+bake_interval = 20.0
+_data = {
+"points": PackedVector2Array(-90.12822, 33.165977, 90.12822, -33.165977, 637.7165, 652.33356, 0, 0, 0, 0, 925.8979, 605.04443, -61.121468, 2.4470186, 61.121468, -2.4470186, 1083.6302, 604.2, 0, 0, 0, 0, 1193.6167, 650.64465)
+}
+point_count = 4
 
 [node name="Game" type="Node2D"]
 
@@ -29,3 +37,8 @@ script = ExtResource("4_fc0e3")
 position = Vector2(1007, 599)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+
+[node name="TerrainPath" parent="." instance=ExtResource("6_ryrav")]
+position = Vector2(-182, -830)
+scale = Vector2(1.1728724, 2.3684108)
+curve = SubResource("Curve2D_ryrav")
