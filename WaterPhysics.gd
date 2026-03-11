@@ -28,7 +28,7 @@ func create_particle():
 	#set physics parameters
 	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_FRICTION,0.0)
 	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_MASS,1.0)
-	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_GRAVITY_SCALE,0.5)
+	ps.body_set_param(water_col,PhysicsServer2D.BODY_PARAM_GRAVITY_SCALE,1.0)
 	ps.body_set_state(water_col,PhysicsServer2D.BODY_STATE_TRANSFORM,trans)
 	#Visual
 	#create canvas item(all 2D objects are canvas items)

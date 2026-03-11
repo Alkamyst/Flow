@@ -26,4 +26,6 @@ metadata/_edit_lock_ = true
 script = ExtResource("4_fc0e3")
 
 [node name="Glass" parent="." instance=ExtResource("5_7jktm")]
-position = Vector2(978, 603)
+position = Vector2(1007, 599)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
