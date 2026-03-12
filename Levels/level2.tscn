@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1fffwnc4rep4"]
+
+[ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_eex2w"]
+[ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_ltsrt"]
+[ext_resource type="PackedScene" uid="uid://bhjmj57sab2r4" path="res://Water_Color.tscn" id="3_2jaon"]
+[ext_resource type="PackedScene" uid="uid://dkwteo8ur3mwy" path="res://Objects/Line Adder/line_adder.tscn" id="4_dj5hn"]
+[ext_resource type="PackedScene" uid="uid://biy5qhi571oct" path="res://Objects/Glass/glass.tscn" id="5_0ywmm"]
+[ext_resource type="PackedScene" uid="uid://cj7gp0nfcjj7v" path="res://Objects/Terrain/terrain_path.tscn" id="6_k0lmg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
+
+[sub_resource type="Curve2D" id="Curve2D_ryrav"]
+bake_interval = 20.0
+_data = {
+"points": PackedVector2Array(0, 0, 90.12822, -33.165977, 637.7165, 652.33356, 0, 0, 0, 0, 925.8979, 605.04443, -61.121468, 2.4470186, 61.121468, -2.4470186, 1083.6302, 604.2, 0, 0, 0, 0, 1193.6167, 650.64465)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_dj5hn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 942.98413, 385.49054, -34.548935, -18.73859, 34.548935, 18.73859, 1114.3583, 388.86835, 11.516312, -4.888328, -11.516312, 4.888328, 1120.3264, 424.33514, 0, 0, 0, 0, 1032.5079, 433.20187, 45.242653, 0.81472135, -45.242653, -0.81472135, 863.6915, 452.62418, 0, 0, 0, 0, 767.3469, 431.09076, -80.61418, 18.33123, 80.61418, -18.33123, 775.0204, 396.46838, -34.27122, 1.2795582, 34.27122, -1.2795582, 938.72107, 385.91278)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_ojro4"]
+_data = {
+"points": PackedVector2Array(-22.18749, 0.23886035, 22.18749, -0.23886035, 537.1428, 461.9131, 3.8586938, -15.525923, -3.8586938, 15.525923, 603.64624, 494.00214, 23.152163, -0.23886035, -23.152163, 0.23886035, 551.63715, 519.3356, 4.823367, 19.108828, -4.823367, -19.108828, 470.63943, 500.3355, -16.399448, 1.4331621, 16.399448, -1.4331621, 526.9115, 462.33533)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+
+[node name="WaterPhysics" parent="." instance=ExtResource("1_eex2w")]
+material = SubResource("ShaderMaterial_fc0e3")
+position = Vector2(159, -124)
+particle_texture = ExtResource("2_ltsrt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Water_Color" parent="CanvasLayer" instance=ExtResource("3_2jaon")]
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="LineAdder" parent="." instance=ExtResource("4_dj5hn")]
+
+[node name="Glass" parent="." instance=ExtResource("5_0ywmm")]
+position = Vector2(1007, 599)
+
+[node name="TerrainPath" parent="." instance=ExtResource("6_k0lmg")]
+position = Vector2(-182, -830)
+scale = Vector2(1.1728724, 2.3684108)
+curve = SubResource("Curve2D_ryrav")
+
+[node name="TerrainPath2" parent="." instance=ExtResource("6_k0lmg")]
+position = Vector2(-182, -830)
+scale = Vector2(1.1728724, 2.3684108)
+curve = SubResource("Curve2D_dj5hn")
+
+[node name="TerrainPath3" parent="." instance=ExtResource("6_k0lmg")]
+position = Vector2(-179, -982)
+scale = Vector2(1.1728724, 2.3684108)
+curve = SubResource("Curve2D_ojro4")

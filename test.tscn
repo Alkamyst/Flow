@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wy8ogod8dfpk"]
+
+[ext_resource type="PackedScene" uid="uid://dkwteo8ur3mwy" path="res://Objects/Line Adder/line_adder.tscn" id="1_37kl0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LineAdder" parent="." instance=ExtResource("1_37kl0")]

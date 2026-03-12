@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm6qi2ixxck50"]
+
+[ext_resource type="Script" uid="uid://d1aba2c550erk" path="res://Objects/Transition/transition.gd" id="1_eppp2"]
+
+[node name="Transition" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_eppp2")

@@ -42,21 +42,22 @@ build_mode = 1
 polygon = PackedVector2Array(10.56123, -40.362274, 6.224493, -5.9420204, -5.000002, -5.9420204, -9.846943, -40.72459, -13.163271, -40.72459, -5.7653084, -4.8550653, 6.9897995, -4.8550653, 14.387762, -40.362274)
 
 [node name="Inside" type="Polygon2D" parent="."]
-position = Vector2(7.5999985, -0.1000061)
+position = Vector2(8, 0)
 scale = Vector2(3.9199982, 2.7600029)
 color = Color(0.43137255, 0.43137255, 0.60784316, 0.36862746)
-polygon = PackedVector2Array(9, -37, 2, -37, -7, -37, -13, -37, -15, -37, -10, 2, -2, 2, 6, 2, 11, -37)
+polygon = PackedVector2Array(2, -37, -7, -37, -12.244904, -36.956482, -7.6530647, -2.1739106, -2.0408173, -2.1739106, 3.5714302, -2.1739106, 7.908167, -36.956482)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_mstf8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(0, -53)
 shape = SubResource("RectangleShape2D_sc5ce")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(44, -101, 26, -1, -26, -1, -45, -101)
-default_color = Color(0.4745098, 1, 1, 0.3254902)
+default_color = Color(0.15294118, 0.50980395, 1, 0.5019608)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2

@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://j7hw0m75kdbc"]
+
+[ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_wiukq"]
+[ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_g804b"]
+[ext_resource type="PackedScene" uid="uid://bhjmj57sab2r4" path="res://Water_Color.tscn" id="3_ftf2w"]
+[ext_resource type="PackedScene" uid="uid://dkwteo8ur3mwy" path="res://Objects/Line Adder/line_adder.tscn" id="4_wiukq"]
+[ext_resource type="PackedScene" uid="uid://biy5qhi571oct" path="res://Objects/Glass/glass.tscn" id="5_1civ8"]
+[ext_resource type="PackedScene" uid="uid://cj7gp0nfcjj7v" path="res://Objects/Terrain/terrain_path.tscn" id="6_5sfgv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
+
+[sub_resource type="Curve2D" id="Curve2D_ryrav"]
+bake_interval = 20.0
+_data = {
+"points": PackedVector2Array(0, 0, 90.12822, -33.165977, 637.7165, 652.33356, 0, 0, 0, 0, 925.8979, 605.04443, -61.121468, 2.4470186, 61.121468, -2.4470186, 1083.6302, 604.2, 0, 0, 0, 0, 1193.6167, 650.64465)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_wiukq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1183.4194, 530.3134, 48.13554, -11.08718, -48.13554, 11.08718, 279.6553, 450.51306, 0, 0, 0, 0, 259.19272, 489.35767, -40.299522, -3.8805132, 40.299522, 3.8805132, 316.31744, 515.5356, 0, 0, 0, 0, 1198.7664, 550.5802)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+
+[node name="WaterPhysics" parent="." instance=ExtResource("1_wiukq")]
+material = SubResource("ShaderMaterial_fc0e3")
+position = Vector2(977, -124)
+particle_texture = ExtResource("2_g804b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Water_Color" parent="CanvasLayer" instance=ExtResource("3_ftf2w")]
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="LineAdder" parent="." instance=ExtResource("4_wiukq")]
+
+[node name="Glass" parent="." instance=ExtResource("5_1civ8")]
+position = Vector2(768, 600)
+
+[node name="TerrainPath" parent="." instance=ExtResource("6_5sfgv")]
+position = Vector2(-420.96008, -829)
+scale = Vector2(1.1728724, 2.3684108)
+curve = SubResource("Curve2D_ryrav")
+
+[node name="TerrainPath2" parent="." instance=ExtResource("6_5sfgv")]
+position = Vector2(-182, -884)
+scale = Vector2(1.1728724, 2.3684108)
+curve = SubResource("Curve2D_wiukq")
