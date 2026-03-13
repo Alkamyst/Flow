@@ -54,5 +54,8 @@ common/physics_ticks_per_second=200
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.02278289, 0.07672062, 0.14368713, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
+2d/sdf/oversize=2
+2d/sdf/scale=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bb0sxe01j7hc0"]
+[gd_scene load_steps=13 format=3 uid="uid://bb0sxe01j7hc0"]
 
 [ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_86e4h"]
 [ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_wlhit"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biy5qhi571oct" path="res://Objects/Glass/glass.tscn" id="5_rwdqe"]
 [ext_resource type="PackedScene" uid="uid://cj7gp0nfcjj7v" path="res://Objects/Terrain/terrain_path.tscn" id="6_6qiv1"]
 [ext_resource type="PackedScene" uid="uid://d22t5km6rdvcd" path="res://Objects/Platform/Spinning Platform/spinning_platform.tscn" id="7_vupvr"]
+[ext_resource type="PackedScene" uid="uid://c8m5eop682bob" path="res://Objects/Background/background.tscn" id="8_wlhit"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
 
@@ -69,3 +70,5 @@ curve = SubResource("Curve2D_nq3mb")
 position = Vector2(576, 333)
 lineWidth = 400.0
 speed = 10.0
+
+[node name="Background" parent="." instance=ExtResource("8_wlhit")]

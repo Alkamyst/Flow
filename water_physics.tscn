@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://xhyd4iacbabt" path="res://remove_water.gd" id="2_61ljo"]
 
 [node name="WaterPhysics" type="Node2D"]
+z_index = -1
 script = ExtResource("1_o3x23")
 
 [node name="RemoveWater" type="Node" parent="."]

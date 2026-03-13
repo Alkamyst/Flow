@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8m5eop682bob"]
+
+[ext_resource type="Shader" uid="uid://cjrlhk3q31bdp" path="res://Cloud_Shader.gdshader" id="1_3vivl"]
+[ext_resource type="Texture2D" uid="uid://bacmot7211k6w" path="res://Objects/Background/noise1.tres" id="2_ek7gq"]
+[ext_resource type="Texture2D" uid="uid://djbplyuo86i24" path="res://Sprites/Background/Hill.png" id="3_rgdbf"]
+[ext_resource type="Texture2D" uid="uid://d2cmhmuu8stoi" path="res://Sprites/Light.png" id="4_rw8k2"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ek7gq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q3vpb"]
+noise = SubResource("FastNoiseLite_ek7gq")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rw8k2"]
+shader = ExtResource("1_3vivl")
+shader_parameter/perlin_noise = ExtResource("2_ek7gq")
+shader_parameter/cell_noise = SubResource("NoiseTexture2D_q3vpb")
+shader_parameter/amount = 40
+
+[node name="Background" type="CanvasLayer"]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -148.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_rgdbf")
+
+[node name="Clouds" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rw8k2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.32413194, 0.48767245, 0.95631844, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-72, -598)
+color = Color(0.3254902, 0.4862745, 0.73333335, 1)
+energy = 2.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.3529412)
+texture = ExtResource("4_rw8k2")
+texture_scale = 5.93

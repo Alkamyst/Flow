@@ -5,12 +5,13 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xuul"]
 shader = ExtResource("1")
 shader_parameter/water_speed = 0.0999999977648
-shader_parameter/color_detect_threshold = 0.5
-shader_parameter/water_dev_color = Color(0, 1, 1, 1)
-shader_parameter/water_color = Color(0.45242864, 0.6254468, 0.9999978, 1)
+shader_parameter/color_detect_threshold = 0.3
+shader_parameter/water_dev_color = Color(1, 0, 1, 1)
+shader_parameter/water_color = Color(0.3019608, 0.5058824, 0.9843137, 1)
 shader_parameter/bubble_color = Color(0.3447817, 0.67875683, 1.5, 1)
 
 [node name="Water_Color" type="ColorRect"]
+z_index = -1
 material = SubResource("ShaderMaterial_2xuul")
 anchors_preset = 15
 anchor_right = 1.0

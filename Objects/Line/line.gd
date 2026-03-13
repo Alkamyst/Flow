@@ -10,7 +10,7 @@ var drawn: bool = false
 
 const WIDTH = 10
 
-const GREY = Color("919191ff")
+const GREY = Color("838383ff")
 const WHITE = Color("ffffffff")
 
 var mouseIn: bool = false

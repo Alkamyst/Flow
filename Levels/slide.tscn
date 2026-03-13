@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8kb8cqj6452o"]
+[gd_scene load_steps=12 format=3 uid="uid://b8kb8cqj6452o"]
 
 [ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_nanxr"]
 [ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_btbpw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwteo8ur3mwy" path="res://Objects/Line Adder/line_adder.tscn" id="4_nanxr"]
 [ext_resource type="PackedScene" uid="uid://biy5qhi571oct" path="res://Objects/Glass/glass.tscn" id="5_g4w76"]
 [ext_resource type="PackedScene" uid="uid://cj7gp0nfcjj7v" path="res://Objects/Terrain/terrain_path.tscn" id="6_f4ugn"]
+[ext_resource type="PackedScene" uid="uid://c8m5eop682bob" path="res://Objects/Background/background.tscn" id="7_cdvq7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
 
@@ -62,3 +63,5 @@ curve = SubResource("Curve2D_dj5hn")
 position = Vector2(-48, -825)
 scale = Vector2(1.1728724, 2.3684108)
 curve = SubResource("Curve2D_nanxr")
+
+[node name="Background" parent="." instance=ExtResource("7_cdvq7")]

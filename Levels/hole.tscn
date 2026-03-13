@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ibbnlx5ndggb"]
+[gd_scene load_steps=12 format=3 uid="uid://ibbnlx5ndggb"]
 
 [ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_eex2w"]
 [ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_ltsrt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwteo8ur3mwy" path="res://Objects/Line Adder/line_adder.tscn" id="4_eex2w"]
 [ext_resource type="PackedScene" uid="uid://biy5qhi571oct" path="res://Objects/Glass/glass.tscn" id="5_0ywmm"]
 [ext_resource type="PackedScene" uid="uid://cj7gp0nfcjj7v" path="res://Objects/Terrain/terrain_path.tscn" id="6_k0lmg"]
+[ext_resource type="PackedScene" uid="uid://c8m5eop682bob" path="res://Objects/Background/background.tscn" id="7_ahaa6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
 
@@ -36,6 +37,7 @@ position = Vector2(977, -124)
 particle_texture = ExtResource("2_ltsrt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="Water_Color" parent="CanvasLayer" instance=ExtResource("3_2jaon")]
 grow_horizontal = 2
@@ -61,3 +63,5 @@ curve = SubResource("Curve2D_eex2w")
 position = Vector2(-179, -1036)
 scale = Vector2(1.1728724, 2.3684108)
 curve = SubResource("Curve2D_ltsrt")
+
+[node name="Background" parent="." instance=ExtResource("7_ahaa6")]
