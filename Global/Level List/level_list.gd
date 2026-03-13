@@ -1,14 +1,19 @@
 extends Node2D
 
-const LEVEL1 = "res://Levels/level1.tscn"
-const LEVEL2 = "res://Levels/level2.tscn"
-const LEVEL3 = "res://Levels/level3.tscn"
-const LEVEL4 = "res://Levels/level4.tscn"
-const LEVEL5 = "res://Levels/level5.tscn"
-const LEVEL6 = "res://Levels/level6.tscn"
+const LEVEL1 = "res://Levels/intro.tscn"
+const LEVEL2 = "res://Levels/intro2.tscn"
+const LEVEL_HOLE = "res://Levels/hole.tscn"
+const LEVEL_SLIDE = "res://Levels/slide.tscn"
+const LEVEL_STOP = "res://Levels/stop.tscn"
+const LEVEL_STOP2 = "res://Levels/stop2.tscn"
+const LEVEL_BUILDUP = "res://Levels/buildup.tscn"
+const LEVEL_TURN = "res://Levels/turn.tscn"
+const LEVEL_UP_AND_OVER = "res://Levels/upandover.tscn"
+const LEVEL_SLAM_DUNK = "res://Levels/slamdunk.tscn"
 
-const LEVEL_ARRAY: Array = [LEVEL1, LEVEL2, LEVEL3, LEVEL4, LEVEL5, 
-LEVEL6]
+const LEVEL_ARRAY: Array = [LEVEL1, LEVEL2, LEVEL_HOLE, LEVEL_SLIDE, 
+LEVEL_STOP, LEVEL_STOP2, LEVEL_BUILDUP, 
+LEVEL_TURN, LEVEL_UP_AND_OVER, LEVEL_SLAM_DUNK]
 
 func getLevel(num):
 	return LEVEL_ARRAY[num]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d22t5km6rdvcd"]
+
+[ext_resource type="PackedScene" uid="uid://c0njc2y2lxris" path="res://Objects/Platform/platform.tscn" id="1_itwwl"]
+[ext_resource type="PackedScene" uid="uid://uyfo0opu7j1d" path="res://Objects/Platform/Spinning Platform/spin.tscn" id="2_xynn8"]
+
+[node name="Platform" instance=ExtResource("1_itwwl")]
+
+[node name="Spin" parent="." index="0" instance=ExtResource("2_xynn8")]

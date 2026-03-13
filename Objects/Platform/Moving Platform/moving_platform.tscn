@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://flkubaljawjd"]
+
+[ext_resource type="PackedScene" uid="uid://c0njc2y2lxris" path="res://Objects/Platform/platform.tscn" id="1_dexsg"]
+[ext_resource type="Script" uid="uid://buq6vkhsgcj4v" path="res://Objects/Platform/Moving Platform/move.gd" id="2_0leue"]
+
+[sub_resource type="Animation" id="Animation_4teb6"]
+resource_name = "moving"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:movPos")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0leue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:movPos")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3a23e"]
+_data = {
+&"RESET": SubResource("Animation_0leue"),
+&"moving": SubResource("Animation_4teb6")
+}
+
+[node name="Platform" instance=ExtResource("1_dexsg")]
+
+[node name="Move" type="Node" parent="." index="2"]
+script = ExtResource("2_0leue")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Move" index="0"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_3a23e")
+}
+autoplay = "moving"
