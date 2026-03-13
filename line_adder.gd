@@ -37,9 +37,20 @@ func _process(_delta):
 	
 	canClick = true
 	
+	if Input.is_action_just_pressed("Reset"):
+		reset()
+	
 func subLinesPlaced():
 	linesPlaced -= 1
 	
 func popArray(num):
 	lineArray[num].queue_free()
 	lineArray.pop_at(num)
+
+func reset():
+	Globals.reset = true
+	#$get_tree().reload_current_scene()
+
+
+func _on_reset_button_button_down():
+	reset()

@@ -78,3 +78,10 @@ func removeWater():
 		#remove reference
 		water_particles.erase(col)
 		Globals.total_water_particles -=1
+		
+func _process(_delta):
+	if Globals.reset:
+		removeWater()
+		if water_particles.size() <= 0:
+			get_tree().reload_current_scene()
+			Globals.reset = false
