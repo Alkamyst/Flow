@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8m5eop682bob"]
+[gd_scene load_steps=10 format=3 uid="uid://c8m5eop682bob"]
 
 [ext_resource type="Shader" uid="uid://cjrlhk3q31bdp" path="res://Cloud_Shader.gdshader" id="1_3vivl"]
 [ext_resource type="Texture2D" uid="uid://bacmot7211k6w" path="res://Objects/Background/noise1.tres" id="2_ek7gq"]
 [ext_resource type="Texture2D" uid="uid://djbplyuo86i24" path="res://Sprites/Background/Hill.png" id="3_rgdbf"]
 [ext_resource type="Texture2D" uid="uid://d2cmhmuu8stoi" path="res://Sprites/Light.png" id="4_rw8k2"]
+[ext_resource type="PackedScene" uid="uid://dh5dpkq0c76ns" path="res://Objects/Background/water_physics_background.tscn" id="5_xxetu"]
+[ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="6_kchii"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ek7gq"]
 
@@ -19,6 +21,9 @@ shader_parameter/amount = 40
 
 [node name="Background" type="CanvasLayer"]
 layer = -2
+
+[node name="WaterPhysics" parent="." instance=ExtResource("5_xxetu")]
+particle_texture = ExtResource("6_kchii")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 14

@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://whe3j82r2x3c"]
+
+[ext_resource type="Script" uid="uid://did2k2iixx0ra" path="res://credits_screen.gd" id="1_r12fk"]
+[ext_resource type="PackedScene" uid="uid://c8m5eop682bob" path="res://Objects/Background/background.tscn" id="2_p8ydj"]
+[ext_resource type="LabelSettings" uid="uid://f7dam1q7hc1i" path="res://Fonts/Lines.tres" id="4_qvca1"]
+[ext_resource type="FontFile" uid="uid://ulnndspn78qi" path="res://Fonts/Awesome 9.ttf" id="4_vy8yr"]
+
+[node name="CreditsScreen" type="Node2D"]
+script = ExtResource("1_r12fk")
+
+[node name="Background" parent="." instance=ExtResource("2_p8ydj")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 103.0
+offset_right = 100.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ReturnButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_vy8yr")
+theme_override_font_sizes/font_size = 48
+text = "Return"
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -201.0
+offset_right = 350.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -86.0
+offset_right = 294.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 300
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Logan Conrad
+
+Game
+Sprites
+Coding"
+label_settings = ExtResource("4_qvca1")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "somepx
+
+Font
+
+"
+label_settings = ExtResource("4_qvca1")
+horizontal_alignment = 1
+
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/ReturnButton" to="." method="_on_return_button_button_down"]

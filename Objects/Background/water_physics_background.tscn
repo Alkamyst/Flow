@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh5dpkq0c76ns"]
+
+[ext_resource type="Script" uid="uid://cpx8mlb2cc34h" path="res://Objects/Background/water_physics_background.gd" id="1_f501n"]
+[ext_resource type="Script" uid="uid://xhyd4iacbabt" path="res://remove_water.gd" id="2_3oou3"]
+
+[node name="WaterPhysics" type="Node2D"]
+z_index = -1
+script = ExtResource("1_f501n")
+spawn_time = 2.0
+
+[node name="RemoveWater" type="Node" parent="."]
+process_mode = 2
+script = ExtResource("2_3oou3")
