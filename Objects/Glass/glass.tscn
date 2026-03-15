@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://biy5qhi571oct"]
+[gd_scene load_steps=7 format=3 uid="uid://biy5qhi571oct"]
 
 [ext_resource type="Script" uid="uid://barfl1vvjaem2" path="res://Objects/Glass/area_2d.gd" id="1_mstf8"]
+[ext_resource type="Script" uid="uid://cv1fba7sihg7a" path="res://Objects/Glass/glass.gd" id="1_vmq1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sc5ce"]
 size = Vector2(80, 98)
@@ -34,6 +35,7 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_mstf8")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_vmq1h")
 
 [node name="Glass" type="StaticBody2D"]
+script = ExtResource("1_vmq1h")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-2.4000015, 10.399994)
