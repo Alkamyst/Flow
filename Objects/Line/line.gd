@@ -6,6 +6,9 @@ extends StaticBody2D
 @onready var MouseCol: CollisionShape2D = $MouseArea2D/CollisionShape2D
 @onready var Line: Line2D = $Line2D
 
+@onready var SFX: Node2D = $SFX
+@onready var SFX_Erase: AudioStreamPlayer2D = $SFX/Erase
+
 var drawn: bool = false
 
 const WIDTH = 10
@@ -14,6 +17,9 @@ const GREY = Color("838383ff")
 const WHITE = Color("ffffffff")
 
 var mouseIn: bool = false
+
+func playSFXErase():
+	SFX_Erase.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,6 +44,10 @@ func _process(_delta):
 		if Input.is_action_pressed("Right Click"):
 			get_parent().popArray(get_parent().lineArray.find(self))
 			get_parent().subLinesPlaced()
+			
+			playSFXErase()
+			SFX_Erase.global_position = points[0]
+			SFX_Erase.reparent(get_tree().current_scene)
 	
 func enable():
 	drawn = true

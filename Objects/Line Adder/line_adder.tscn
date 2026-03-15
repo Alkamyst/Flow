@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkwteo8ur3mwy"]
+[gd_scene load_steps=9 format=3 uid="uid://dkwteo8ur3mwy"]
 
 [ext_resource type="Script" uid="uid://b205hitcvum0g" path="res://line_adder.gd" id="1_njg4o"]
 [ext_resource type="LabelSettings" uid="uid://f7dam1q7hc1i" path="res://Fonts/Lines.tres" id="2_74cim"]
 [ext_resource type="PackedScene" uid="uid://dm6qi2ixxck50" path="res://Objects/Transition/transition.tscn" id="3_0bw7j"]
 [ext_resource type="StyleBox" uid="uid://cvbx7pq1opker" path="res://Objects/Line Adder/reset.tres" id="3_k2qwi"]
 [ext_resource type="Texture2D" uid="uid://dcqfas5ynq3y5" path="res://Sprites/Reset/Reset.png" id="3_yc4s0"]
+[ext_resource type="AudioStream" uid="uid://bpkelgjxvjxv1" path="res://Sound/SFX/drawClick.wav" id="6_fiq5r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2qwi"]
 content_margin_left = 4.0
@@ -122,5 +123,14 @@ theme_override_styles/hover = ExtResource("3_k2qwi")
 icon = ExtResource("3_yc4s0")
 
 [node name="Transition" parent="." instance=ExtResource("3_0bw7j")]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Draw" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("6_fiq5r")
+
+[node name="DrawRelease" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("6_fiq5r")
+pitch_scale = 0.8
 
 [connection signal="button_down" from="CanvasLayer/ResetButton" to="." method="_on_reset_button_button_down"]

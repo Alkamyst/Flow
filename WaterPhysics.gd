@@ -8,6 +8,10 @@ var spawn_timer = 0
 var water_particles = []
 var process: bool = true
 
+@onready var SFXRain: AudioStreamPlayer2D = $SFXRain
+const MAX_VOLUME: float = -20.0
+var volume: float = -80.0
+
 func create_particle():
 	var ps = PhysicsServer2D
 	var vs = RenderingServer
@@ -82,7 +86,12 @@ func removeWater():
 		Globals.total_water_particles -=1
 		
 func _process(_delta):
+	SFXRain.volume_db = volume
+	if volume < MAX_VOLUME:
+		volume += 0.5
+	
 	if Globals.paused:
+		SFXRain.stream_paused = true
 		process = false
 	if Globals.reset:
 		removeWater()

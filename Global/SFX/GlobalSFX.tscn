@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://lflfqxv87vb3"]
+
+[ext_resource type="Script" uid="uid://dqutagn5dmf4y" path="res://Global/SFX/global_sfx.gd" id="1_gtynd"]
+[ext_resource type="AudioStream" uid="uid://bjmb0r04211qm" path="res://Sound/SFX/rain.wav" id="2_1eadq"]
+[ext_resource type="AudioStream" uid="uid://cnqrpsftdlve" path="res://Sound/SFX/menuButton.wav" id="2_rayrq"]
+
+[node name="GlobalSfx" type="Node2D"]
+script = ExtResource("1_gtynd")
+
+[node name="Rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1eadq")
+volume_db = -30.0
+autoplay = true
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rayrq")
+volume_db = -10.0

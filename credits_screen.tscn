@@ -42,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -201.0
-offset_right = 350.0
-offset_bottom = -1.0
+offset_left = -400.0
+offset_top = -169.0
+offset_right = 400.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -62,7 +62,7 @@ offset_right = 294.0
 offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 300
+theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
 layout_mode = 2
@@ -80,6 +80,16 @@ text = "somepx
 
 Font
 
+"
+label_settings = ExtResource("4_qvca1")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+layout_mode = 2
+text = "freesound.org
+
+Sound Effects
+Music
 "
 label_settings = ExtResource("4_qvca1")
 horizontal_alignment = 1
