@@ -18,7 +18,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmq1h"]
-bg_color = Color(1.347661e-06, 0.6447382, 0.9172544, 1)
+bg_color = Color(0.15155804, 0.58138674, 0.8358115, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1

@@ -47,10 +47,10 @@ metadata/_edit_lock_ = true
 lines = 1
 
 [node name="Glass" parent="." instance=ExtResource("5_g4w76")]
-position = Vector2(1007, 599)
+position = Vector2(917.0399, 602)
 
 [node name="TerrainPath" parent="." instance=ExtResource("6_f4ugn")]
-position = Vector2(-182, -830)
+position = Vector2(-271.96008, -827)
 scale = Vector2(1.1728724, 2.3684108)
 curve = SubResource("Curve2D_ryrav")
 

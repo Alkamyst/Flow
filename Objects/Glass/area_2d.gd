@@ -15,6 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if overlapNum >= OVERLAP_NEEDED:
+		Globals.paused = true
 		get_tree().paused = true
 		var new_menu = MENU.instantiate()
 		get_tree().current_scene.add_child(new_menu)

@@ -1,12 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0jw83q1iis5l"]
+[gd_scene load_steps=2 format=3 uid="uid://b0jw83q1iis5l"]
 
 [ext_resource type="Script" uid="uid://ba6yrkm3w7vcy" path="res://WaterPhysics.gd" id="1_o3x23"]
-[ext_resource type="Script" uid="uid://xhyd4iacbabt" path="res://remove_water.gd" id="2_61ljo"]
 
 [node name="WaterPhysics" type="Node2D"]
-z_index = -1
+process_mode = 3
 script = ExtResource("1_o3x23")
-
-[node name="RemoveWater" type="Node" parent="."]
-process_mode = 2
-script = ExtResource("2_61ljo")

@@ -11,9 +11,11 @@ const LEVEL_TURN = "res://Levels/turn.tscn"
 const LEVEL_UP_AND_OVER = "res://Levels/upandover.tscn"
 const LEVEL_SLAM_DUNK = "res://Levels/slamdunk.tscn"
 
+const TITLE_SCREEN = "res://title_screen.tscn"
+
 const LEVEL_ARRAY: Array = [LEVEL1, LEVEL2, LEVEL_HOLE, LEVEL_SLIDE, 
 LEVEL_STOP, LEVEL_STOP2, LEVEL_BUILDUP, 
-LEVEL_TURN, LEVEL_UP_AND_OVER, LEVEL_SLAM_DUNK]
+LEVEL_TURN, LEVEL_UP_AND_OVER, LEVEL_SLAM_DUNK, TITLE_SCREEN]
 
 func getLevel(num):
 	return LEVEL_ARRAY[num]

@@ -6,6 +6,7 @@ var current_particle_count = 0
 var spawn_timer = 0
 @export var spawn_time = 5.0
 var water_particles = []
+var process: bool = true
 
 func create_particle():
 	var ps = PhysicsServer2D
@@ -49,26 +50,27 @@ func create_particle():
 	water_particles.append([water_col,water_particle])
 
 func _physics_process(_delta):
-	#add particles while less than max amount set and timer < 0
-	if spawn_timer < 0 and Globals.total_water_particles < max_water_particles:
-		create_particle()
-		current_particle_count += 1
-		Globals.total_water_particles += 1
-		spawn_timer = spawn_time
-	spawn_timer -= 1
-	#update particle texture position to be at Rigid body position
-	for col in water_particles:
-		var trans = PhysicsServer2D.body_get_state(col[0],PhysicsServer2D.BODY_STATE_TRANSFORM)
-		trans.origin = trans.origin - global_position
-		RenderingServer.canvas_item_set_transform(col[1],trans)
-		#Delete particles if Y position > than 1500. 2D y down is positive
-		if trans.origin.y > 1500:
-			#remove RIDs
-			PhysicsServer2D.free_rid(col[0])
-			RenderingServer.free_rid(col[1])
-			#remove reference
-			water_particles.erase(col)
-			Globals.total_water_particles -=1
+	if process:
+		#add particles while less than max amount set and timer < 0
+		if spawn_timer < 0 and Globals.total_water_particles < max_water_particles:
+			create_particle()
+			current_particle_count += 1
+			Globals.total_water_particles += 1
+			spawn_timer = spawn_time
+		spawn_timer -= 1
+		#update particle texture position to be at Rigid body position
+		for col in water_particles:
+			var trans = PhysicsServer2D.body_get_state(col[0],PhysicsServer2D.BODY_STATE_TRANSFORM)
+			trans.origin = trans.origin - global_position
+			RenderingServer.canvas_item_set_transform(col[1],trans)
+			#Delete particles if Y position > than 1500. 2D y down is positive
+			if trans.origin.y > 1500:
+				#remove RIDs
+				PhysicsServer2D.free_rid(col[0])
+				RenderingServer.free_rid(col[1])
+				#remove reference
+				water_particles.erase(col)
+				Globals.total_water_particles -=1
 			
 func removeWater():
 	for col in water_particles:
@@ -80,8 +82,30 @@ func removeWater():
 		Globals.total_water_particles -=1
 		
 func _process(_delta):
+	if Globals.paused:
+		process = false
 	if Globals.reset:
 		removeWater()
 		if water_particles.size() <= 0:
 			get_tree().reload_current_scene()
 			Globals.reset = false
+	if Globals.next_level:
+		removeWater()
+		if water_particles.size() <= 0:
+			Globals.cur_level += 1
+			
+			var next_level_file = LevelList.getLevel(Globals.cur_level)
+			
+			"""
+			var tween = create_tween()
+			tween.tween_interval(TRANSITION_TIME)
+			tween.tween_callback(
+				get_tree().change_scene_to_file.bind(next_level_file)
+			)
+			"""
+			
+			Globals.paused = false
+			Globals.next_level = false
+			get_tree().paused = false
+			
+			get_tree().change_scene_to_file(next_level_file)

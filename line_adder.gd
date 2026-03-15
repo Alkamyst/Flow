@@ -6,6 +6,7 @@ var new_line
 var lineArray: Array = []
 var linesPlaced: int = 0
 @onready var numLabel: Label = $CanvasLayer/Panel/HBoxContainer/NumLabel
+@onready var levelNumLabel: Label = $CanvasLayer/LevelPanel/HBoxContainer/NumLabel
 
 var canClick: bool = false
 
@@ -34,6 +35,8 @@ func _process(_delta):
 					linesPlaced += 1
 		
 	numLabel.text = str(lines - linesPlaced)
+	
+	levelNumLabel.text = str(Globals.cur_level)
 	
 	canClick = true
 	

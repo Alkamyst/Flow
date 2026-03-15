@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkig12lcklw1w"]
+[gd_scene load_steps=11 format=3 uid="uid://dkig12lcklw1w"]
 
 [ext_resource type="PackedScene" uid="uid://b0jw83q1iis5l" path="res://water_physics.tscn" id="1_302sc"]
 [ext_resource type="Texture2D" uid="uid://dqeu0yvreyw8h" path="res://Sprites/water_particle.png" id="2_aunfx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biy5qhi571oct" path="res://Objects/Glass/glass.tscn" id="5_utqd4"]
 [ext_resource type="PackedScene" uid="uid://cj7gp0nfcjj7v" path="res://Objects/Terrain/terrain_path.tscn" id="6_u55on"]
 [ext_resource type="PackedScene" uid="uid://c8m5eop682bob" path="res://Objects/Background/background.tscn" id="7_43tyq"]
+[ext_resource type="PackedScene" uid="uid://dvfjqeas1kql1" path="res://Objects/Mouse/mouse.tscn" id="8_nubpj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fc0e3"]
 
@@ -18,6 +19,9 @@ _data = {
 point_count = 4
 
 [node name="Game" type="Node2D"]
+
+[node name="Mouse" parent="." instance=ExtResource("8_nubpj")]
+position = Vector2(314, 161)
 
 [node name="WaterPhysics" parent="." instance=ExtResource("1_302sc")]
 material = SubResource("ShaderMaterial_fc0e3")

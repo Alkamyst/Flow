@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvfjqeas1kql1"]
+
+[ext_resource type="Texture2D" uid="uid://c0cip0okcmpqd" path="res://Sprites/Mouse/Mouse.png" id="1_30ush"]
+[ext_resource type="Script" uid="uid://b0ed75mh6qrog" path="res://Objects/Mouse/mouse.gd" id="1_ui0pq"]
+[ext_resource type="FontFile" uid="uid://ulnndspn78qi" path="res://Fonts/Awesome 9.ttf" id="3_ui0pq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tcsmd"]
+font = ExtResource("3_ui0pq")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.30588236)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j2lii"]
+font = ExtResource("3_ui0pq")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.30588236)
+shadow_offset = Vector2(5, 5)
+
+[node name="Mouse" type="Node2D"]
+z_index = 5
+texture_filter = 2
+script = ExtResource("1_ui0pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_30ush")
+
+[node name="Draw" type="Label" parent="."]
+texture_filter = 1
+offset_left = -159.0
+offset_top = -122.0
+offset_right = 161.0
+offset_bottom = 9.0
+text = "Left Click
+Draw"
+label_settings = SubResource("LabelSettings_tcsmd")
+horizontal_alignment = 1
+
+[node name="Erase" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -175.0
+offset_top = -122.0
+offset_right = 177.0
+offset_bottom = 9.0
+text = "Right Click
+Erase"
+label_settings = SubResource("LabelSettings_j2lii")
+horizontal_alignment = 1
